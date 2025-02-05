@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 import time
 
 
-def validateCart():
-    driver = webdriver.Firefox()
+def validatecart():
+    driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get("https://www.ebay.com")
 
@@ -30,4 +30,4 @@ def validateCart():
     print(f"cart value is {textvalue}")
 
 
-validateCart()
+validatecart()
