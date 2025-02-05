@@ -4,7 +4,7 @@ import time
 
 
 def validateCart():
-    driver = webdriver.Chrome()
+    driver = webdriver.Firefox()
     driver.maximize_window()
     driver.get("https://www.ebay.com")
 
@@ -21,11 +21,12 @@ def validateCart():
     driver.switch_to.window(window_handles[1])
 
     # add to cart
-    addtocart = driver.find_element(By.XPATH, '//*[@id="atcBtn_btn_1"]/span/span')
+    time.sleep(5)
+    addtocart = driver.find_element(By.XPATH, '//*[@id="atcBtn_btn_1"]')
     addtocart.click()
     cartget = driver.find_element(By.XPATH, '//*[@class="gh-cart__icon"]')
     textvalue = cartget.text
-    assert int(textvalue) == 0, "cart value is updated"
+    assert int(textvalue) == 1, "cart value is updated"
     print(f"cart value is {textvalue}")
 
 
